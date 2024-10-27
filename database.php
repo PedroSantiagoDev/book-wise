@@ -4,9 +4,23 @@ class DB
 {
     private $db;
 
-    public function __construct()
+    public function __construct($config)
     {
-        $this->db = new PDO('sqlite:database.sqlite');
+        $this->db = new PDO($this->getDsn($config));
+    }
+
+    private function getDsn($config)
+    {
+        $drive = $config['driver'];
+        unset($config['driver']);
+
+        $dsn = $drive . ':' . http_build_query($config, '', ';');
+
+        if ($drive == 'sqlite') {
+            $dsn = $drive . ':' . $config['database'];
+        }
+
+        return $dsn;
     }
 
     public function query($query, $class = null, $params = [])
@@ -21,3 +35,5 @@ class DB
         return $prepare;
     }
 }
+
+$database = new DB($config['database']);
