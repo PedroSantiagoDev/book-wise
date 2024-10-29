@@ -8,6 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $usuario = $database->query(
         query: 'select * from usuarios where email = :email and senha = :senha',
+        class: Usuario::class,
         params: [
             ':email' => $email,
             ':senha' => $senha
@@ -16,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($usuario) {
         $_SESSION['auth'] = $usuario;
-        $_SESSION['mensagem'] = 'Seja bem Vindo ' . $usuario['nome'] . '!';
+        $_SESSION['mensagem'] = 'Seja bem Vindo ' . $usuario->nome . '!';
         header('location: /');
         exit();
     }
