@@ -43,3 +43,12 @@ function abort($code)
     view($code);
     die();
 }
+
+function auth()
+{
+    if (!isset($_SESSION['auth'])) {
+        return null;
+    }
+
+    return $_SESSION['auth'];
+}
