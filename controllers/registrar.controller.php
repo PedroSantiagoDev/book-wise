@@ -1,11 +1,9 @@
 <?php
 
-require 'Validacao.php';
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $validacao = Validacao::validar([
         'nome' => ['required'],
-        'email' => ['required', 'email', 'confirmed'],
+        'email' => ['required', 'email', 'confirmed', 'unique:usuarios'],
         'senha' => ['required', 'min:8', 'max:30', 'strong']
     ], $_POST);
 
@@ -17,9 +15,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $database->query(
         query: 'insert into usuarios (nome, email, senha) values (:nome, :email, :senha)',
         params: [
-            ':nome' => $nome,
-            ':email' => $email,
-            ':senha' => $senha
+            ':nome' => $_POST['nome'],
+            ':email' => $_POST['email'],
+            ':senha' => $_POST['senha']
         ]
     );
 
@@ -28,3 +26,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     header('location: /login');
     exit();
 }
+
+header('location: /login');
+exit();
