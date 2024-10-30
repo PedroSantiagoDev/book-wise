@@ -15,7 +15,14 @@
 
 <h2>Avaliações</h2>
 <div class="grid grid-cols grid-cols-4">
-    <div class="col-span-3"></div>
+    <div class="col-span-3 gap-4 grid">
+        <?php foreach(): ?>
+        <div class="border border-stone-700 rounded">
+
+        </div>
+        <?php endforeach; ?>
+    </div>
+
     <div>
         <?php if (auth()): ?>
             <div class="border border-stone-700 rounded">
