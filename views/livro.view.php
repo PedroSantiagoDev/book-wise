@@ -6,7 +6,7 @@ $sumNotas = round($sumNotas / 5);
 $notaFinal = str_repeat("⭐", $sumNotas);
 ?>
 
-<?= $livro->titulo ?>
+<h1 class="mt-6 font-bold text-lg"><?= $livro->titulo ?></h1>
 <div class="p-2 rounded borde-stone-800 border-2 bg-stone-900">
     <div class="flex">
         <div class="w-1/3">imagem</div>
@@ -22,8 +22,8 @@ $notaFinal = str_repeat("⭐", $sumNotas);
 </div>
 
 <h2>Avaliações</h2>
-<div class="grid grid-cols grid-cols-4">
-    <div class="col-span-3 gap-4 grid">
+<div class="grid gap-4 grid-cols-4">
+    <div class="col-span-3 flex flex-col gap-4">
         <?php foreach ($avaliacoes as $avaliacao): ?>
             <div class="border border-stone-700 rounded p-2">
                 <?= $avaliacao->avaliacao ?>
@@ -66,7 +66,6 @@ $notaFinal = str_repeat("⭐", $sumNotas);
                             <option value="3">3</option>
                             <option value="4">4</option>
                             <option value="5">5</option>
-                        </select>
                         </select>
                     </div>
 
