@@ -1,6 +1,7 @@
 <?php
 
-class Avaliacao {
+class Avaliacao
+{
     public int $id;
     public int $usuario_id;
     public int $livro_id;
