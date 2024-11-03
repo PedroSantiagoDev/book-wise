@@ -3,7 +3,7 @@
 <div class="grid grid-cols-4 gap-4">
     <div class="col-span-3 flex flex-col gap-4">
         <?php foreach ($livros as $livro) {
-            require_once 'partials/_livro.php';
+            require 'partials/_livro.php';
         } ?>
     </div>
 

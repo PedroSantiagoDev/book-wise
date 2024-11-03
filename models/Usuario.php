@@ -2,8 +2,8 @@
 
 class Usuario
 {
-    public int $id;
-    public string $nome;
-    public string $email;
-    public string $senha;
+    public $id;
+    public $nome;
+    public $email;
+    public $senha;
 }

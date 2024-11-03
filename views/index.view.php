@@ -9,6 +9,6 @@
 
 <section class="grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
     <?php foreach ($livros as $livro) {
-        require_once 'partials/_livro.php';
+        require 'partials/_livro.php';
     } ?>
 </section>
