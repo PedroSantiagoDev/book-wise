@@ -2,7 +2,7 @@
 ---
 
 # BOOK WISE
-
+![Screenshot do Sistema](./public/images/boo-wise.png)
 > Sistema para postagem de livros e avaliar os seus livros preferidos.
 
 ---
